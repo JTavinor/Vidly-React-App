@@ -55,7 +55,7 @@ class MovieForm extends Form {
     await this.populateMovies();
   }
 
-  doSubmit = async () => {
+  doSubmit = () => {
     // const { title, genre, stock, rate, _id } = this.state.data;
 
     // const { data: id } = await getGenres();
