@@ -25,14 +25,5 @@ export function saveMovie(movie) {
     delete body._id;
     return http.put(getMovieUrl(movie._id), body);
   }
-  return http.post(apiEndpoint, {
-    title: "AAA",
-    genre: {
-      _id: "5fa67d901d042554e911cab0",
-      name: "Comedy ",
-    },
-    numberInStock: 4,
-    dailyRentalRate: 4,
-    publishDate: moment().toJSON(),
-  });
+  return http.post(apiEndpoint, movie);
 }

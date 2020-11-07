@@ -52,7 +52,7 @@ class MovieForm extends Form {
   }
 
   doSubmit = async () => {
-    const { title, genre, stock, rate } = this.state.data;
+    const { title, genre, stock, rate, _id } = this.state.data;
 
     const { data: id } = await getGenres();
     id.filter((obj) => {
@@ -64,7 +64,7 @@ class MovieForm extends Form {
       genreId: id[0]._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
-      _id: this.state.data._id,
+      _id: _id,
     };
 
     saveMovie(movie);
