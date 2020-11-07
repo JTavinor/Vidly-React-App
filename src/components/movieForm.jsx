@@ -52,7 +52,7 @@ class MovieForm extends Form {
   }
 
   doSubmit = async () => {
-    const { title, genre, stock, rate, _id: movieId } = this.state.data;
+    const { title, genre, stock, rate, _id } = this.state.data;
 
     const { data: id } = await getGenres();
     id.filter((obj) => {
@@ -61,14 +61,14 @@ class MovieForm extends Form {
 
     const movie = {
       title: title,
-      genreId: id[0].name,
+      genreId: id[0]._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
-      _id: movieId || null,
+      _id,
     };
 
     saveMovie(movie);
-    // window.location = "/";
+    window.location = "/";
   };
 
   render() {
