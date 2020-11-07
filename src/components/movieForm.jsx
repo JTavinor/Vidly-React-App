@@ -61,7 +61,7 @@ class MovieForm extends Form {
 
     const movie = {
       title: title,
-      genreId: id[_id],
+      genreId: id._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
       _id: movieId,
