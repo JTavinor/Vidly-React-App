@@ -7,7 +7,7 @@ import queryString from "query-string";
 
 class MovieForm extends Form {
   state = {
-    data: { title: "", genre: "", stock: "", rate: "" },
+    data: { title: "", genre: "", stock: "", rate: "", _id: "" },
     errors: {},
     genres: [],
   };
