@@ -21,22 +21,18 @@ class MovieForm extends Form {
   };
 
   async populateGenres() {
-    const { data: genres } = await getGenres();
+    let { data: genres } = await getGenres();
+    genres = genres.map((element) => {
+      return element.name;
+    });
     this.setState({ genres });
-    // let { data: genres } = await getGenres();
-    // genres = genres.map((element) => {
-    //   return element.name;
-    // });
-    // this.setState({ genres });
   }
 
   async populateMovies() {
     try {
       const movieId = this.props.match.params.id;
       if (movieId === "new") return;
-
-      const { data: movie } = await getMovie(movieId);
-
+      const { data: movie } = await getMovie(this.props.match.params.id);
       const data = { ...this.state.data };
       data.title = movie.title;
       data.genre = movie.genre.name;
@@ -55,23 +51,23 @@ class MovieForm extends Form {
     await this.populateMovies();
   }
 
-  doSubmit = () => {
-    // const { title, genre, stock, rate, _id } = this.state.data;
+  doSubmit = async () => {
+    const { title, genre, stock, rate, _id } = this.state.data;
 
-    // const { data: id } = await getGenres();
-    // id.filter((obj) => {
-    //   return obj.name === genre;
-    // });
+    const { data: id } = await getGenres();
+    id.filter((obj) => {
+      return obj.name === genre;
+    });
 
-    // const movie = {
-    //   title: title,
-    //   genreId: id[0]._id,
-    //   numberInStock: parseInt(stock),
-    //   dailyRentalRate: parseInt(rate),
-    //   _id,
-    // };
+    const movie = {
+      title: title,
+      genreId: id[0]._id,
+      numberInStock: parseInt(stock),
+      dailyRentalRate: parseInt(rate),
+      _id,
+    };
 
-    saveMovie(this.state.data);
+    saveMovie(movie);
     window.location = "/";
   };
 
