@@ -68,7 +68,7 @@ class MovieForm extends Form {
     };
 
     saveMovie(movie);
-    window.location = "/";
+    // window.location = "/";
   };
 
   render() {
