@@ -58,6 +58,7 @@ class MovieForm extends Form {
     id.filter((obj) => {
       return obj.name === genre;
     });
+    console.log(id);
 
     const movie = {
       title: title,
@@ -68,7 +69,7 @@ class MovieForm extends Form {
     };
 
     saveMovie(movie);
-    window.location = "/";
+    // window.location = "/";
   };
 
   render() {
