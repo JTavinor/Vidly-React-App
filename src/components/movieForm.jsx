@@ -7,7 +7,7 @@ import queryString from "query-string";
 
 class MovieForm extends Form {
   state = {
-    data: { title: "", genre: "", stock: "", rate: "", _id: "" },
+    data: { title: "", genre: "", stock: "", rate: "" },
     errors: {},
     genres: [],
   };
@@ -68,7 +68,7 @@ class MovieForm extends Form {
     };
 
     saveMovie(movie);
-    window.location = "/";
+    // window.location = "/";
   };
 
   render() {
