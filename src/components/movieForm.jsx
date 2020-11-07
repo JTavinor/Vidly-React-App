@@ -58,10 +58,11 @@ class MovieForm extends Form {
     id.filter((obj) => {
       return obj.name === genre;
     });
+    const gerneId = id._id;
 
     const movie = {
       title: title,
-      genreId: id[1]._id,
+      genreId: genreId,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
       _id: movieId,
