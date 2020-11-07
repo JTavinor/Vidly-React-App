@@ -64,7 +64,7 @@ class MovieForm extends Form {
       genreId: id[0]._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
-      _id,
+      _id: _id,
     };
 
     saveMovie(movie);
