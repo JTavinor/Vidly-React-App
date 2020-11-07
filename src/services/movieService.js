@@ -19,12 +19,12 @@ export function getMovie(id) {
 }
 
 export function saveMovie(movie) {
-  console.log(movie);
   if (movie._id) {
     const body = { ...movie };
     delete body._id;
     return http.put(getMovieUrl(movie._id), body);
   }
   delete movie._id;
+  console.log(movie);
   return http.post(apiEndpoint, movie);
 }
