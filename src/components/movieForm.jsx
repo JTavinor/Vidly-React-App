@@ -55,14 +55,14 @@ class MovieForm extends Form {
     const { title, genre, stock, rate, _id: movieId } = this.state.data;
 
     const { data: id } = await getGenres();
-    id.filter((obj) => {
+    const genreId = id.filter((obj) => {
       return obj.name === genre;
     });
-    console.log(id);
+    console.log(genreId);
 
     const movie = {
       title: title,
-      genreId: id[0]._id,
+      genreId: genreId._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
       _id: movieId,
