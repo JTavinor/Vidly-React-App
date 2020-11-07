@@ -17,7 +17,6 @@ class MovieForm extends Form {
     genre: Joi.string().required().label("Genre"),
     stock: Joi.number().required().label("Number in Stock").min(0).max(100),
     rate: Joi.number().required().label("Daily Rental Rate").min(0).max(10),
-    _id: Joi.string(),
   };
 
   async populateGenres() {
