@@ -13,7 +13,7 @@ class MovieForm extends Form {
   };
 
   schema = {
-    title: Joi.string().required().label("Title"),
+    title: Joi.string().required().label("Title").min(5),
     genre: Joi.string().required().label("Genre"),
     stock: Joi.number().required().label("Number in Stock").min(0).max(100),
     rate: Joi.number().required().label("Daily Rental Rate").min(0).max(10),
@@ -68,7 +68,7 @@ class MovieForm extends Form {
     };
 
     saveMovie(movie);
-    // window.location = "/";
+    window.location = "/";
   };
 
   render() {
