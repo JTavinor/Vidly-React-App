@@ -7,7 +7,7 @@ import "font-awesome/css/font-awesome.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
-console.log("SUPERMAN", process.env.REACT_APP_NAME);
+console.log("SUPERMAN", process.env.REACT_APP_API_URL);
 
 ReactDOM.render(
   <BrowserRouter>
