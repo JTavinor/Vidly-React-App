@@ -7,7 +7,7 @@ import queryString from "query-string";
 
 class MovieForm extends Form {
   state = {
-    data: { title: "", genre: "", stock: "", rate: "", _id: "" },
+    data: { title: "", genre: "", stock: "", rate: "" },
     errors: {},
     genres: [],
   };
@@ -17,6 +17,7 @@ class MovieForm extends Form {
     genre: Joi.string().required().label("Genre"),
     stock: Joi.number().required().label("Number in Stock").min(0).max(100),
     rate: Joi.number().required().label("Daily Rental Rate").min(0).max(10),
+    _id: Joi.string(),
   };
 
   async populateGenres() {
@@ -63,7 +64,7 @@ class MovieForm extends Form {
       genreId: id[0]._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
-      _id: movieId,
+      _id: movieId || null,
     };
 
     saveMovie(movie);
