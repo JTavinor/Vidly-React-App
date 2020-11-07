@@ -7,7 +7,7 @@ import queryString from "query-string";
 
 class MovieForm extends Form {
   state = {
-    data: { title: "", genre: "", stock: "", rate: "", _id: "" },
+    data: { title: "", genre: "", stock: "", rate: "" },
     errors: {},
     genres: [],
   };
@@ -52,7 +52,7 @@ class MovieForm extends Form {
   }
 
   doSubmit = async () => {
-    const { title, genre, stock, rate, _id: movieId } = this.state.data;
+    const { title, genre, stock, rate, _id } = this.state.data;
 
     const { data: id } = await getGenres();
     id.filter((obj) => {
@@ -61,10 +61,10 @@ class MovieForm extends Form {
 
     const movie = {
       title: title,
-      genreId: id._id,
+      genreId: id[0]._id,
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
-      _id: movieId,
+      _id,
     };
 
     saveMovie(movie);
