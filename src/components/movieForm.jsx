@@ -7,7 +7,7 @@ import queryString from "query-string";
 
 class MovieForm extends Form {
   state = {
-    data: { title: "", genre: "", stock: "", rate: "" },
+    data: { title: "", genre: "", stock: "", rate: "", _id: "" },
     errors: {},
     genres: [],
   };
@@ -58,11 +58,10 @@ class MovieForm extends Form {
     id.filter((obj) => {
       return obj.name === genre;
     });
-    const genreId = genre._id;
 
     const movie = {
       title: title,
-      genreId: genreId,
+      genreId: id[_id],
       numberInStock: parseInt(stock),
       dailyRentalRate: parseInt(rate),
       _id: movieId,
